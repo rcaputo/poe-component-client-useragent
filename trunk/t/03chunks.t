@@ -11,7 +11,7 @@ use POE;
 use POE::Component::Client::UserAgent;
 use Test;
 
-BEGIN { plan tests => 5 }
+BEGIN { plan tests => 4 }
 
 my $debuglevel = shift || 0;
 
@@ -83,5 +83,5 @@ sub response
 	$_[KERNEL] -> post (useragent => 'shutdown') unless $response -> is_redirect;
 	warn $request -> url -> as_string . "\n\t" . $response -> code .
 		' ' . $response -> message . "\n" if $debuglevel >= 1;
-	ok 1 unless $response -> is_redirect;
+        ok 1 unless $response -> is_redirect;
 }
