@@ -4,7 +4,7 @@ use POE;
 use LWP::Parallel;
 
 @POE::Component::Client::UserAgent::ISA = 'LWP::Parallel::UserAgent';
-$POE::Component::Client::UserAgent::VERSION = '0.05';
+$POE::Component::Client::UserAgent::VERSION = '0.06';
 
 my $debuglevel = 0;
 

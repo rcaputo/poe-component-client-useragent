@@ -2,8 +2,9 @@ Revision history for POE::Component::Client::UserAgent
 ======================================================
 
 POE::Component::Client::UserAgent 0.06
-????-??-??
+2004-09-03
 	- test fix since hotmail stopped redirecting
+        - Improve file:// support on some systems.
 
 POE::Component::Client::UserAgent 0.04
 2002-01-03
