@@ -182,7 +182,8 @@ sub _add_out_socket
 	my ($object, $socket) = @_;
 	LWP::Debug::trace ("$object\n\t$socket");
 	$poe_kernel -> select_write ($socket => 'write');
-	$poe_kernel -> select_expedite ($socket => 'error');
+	$poe_kernel -> select_expedite ($socket => 'error')
+		unless -f $socket;
 }
 
 sub _add_in_socket
@@ -190,7 +191,8 @@ sub _add_in_socket
 	my ($object, $socket) = @_;
 	LWP::Debug::trace ("$object\n\t$socket");
 	$poe_kernel -> select_read ($socket => 'read');
-	$poe_kernel -> select_expedite ($socket => 'error');
+	$poe_kernel -> select_expedite ($socket => 'error')
+		unless -f $socket;
 }
 
 sub _remove_out_socket
@@ -198,7 +200,8 @@ sub _remove_out_socket
 	my ($object, $socket) = @_;
 	LWP::Debug::trace ("$object\n\t$socket");
 	$poe_kernel -> select_write ($socket);
-	$poe_kernel -> select_expedite ($socket);
+	$poe_kernel -> select_expedite ($socket)
+		unless -f $socket;
 }
 
 sub _remove_in_socket
@@ -206,7 +209,8 @@ sub _remove_in_socket
 	my ($object, $socket) = @_;
 	LWP::Debug::trace ("$object\n\t$socket");
 	$poe_kernel -> select_read ($socket);
-	$poe_kernel -> select_expedite ($socket);
+	$poe_kernel -> select_expedite ($socket)
+		unless -f $socket;
 }
 
 sub _remove_all_sockets
