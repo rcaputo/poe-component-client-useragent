@@ -54,7 +54,6 @@ POE::Session -> create (
 		_start => \&_start,
 		_stop => \&_stop,
 		response => \&response,
-		_signal => \&_signal
 	},
 );
 
@@ -87,13 +86,6 @@ sub _stop
 {
 	warn "%%% Stop event arrived.\n" if $debuglevel >= 3;
 	ok 1;
-}
-
-sub _signal
-{
-	my $signal = $_[ARG0];
-	warn "%%% Signal $signal arrived.\n" if $debuglevel >= 3;
-	return $signal eq 'IDLE';
 }
 
 sub response

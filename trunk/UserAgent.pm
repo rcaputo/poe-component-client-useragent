@@ -30,7 +30,7 @@ sub spawn
 			$object => {
 				_start => '_pococ_ua_start',
 				_stop => '_pococ_ua_stop',
-				_signal => '_pococ_ua_signal',
+				sigint => '_pococ_ua_sig_int',
 				write => '_pococ_ua_write',
 				read => '_pococ_ua_read',
 				error => '_pococ_ua_error',
@@ -57,6 +57,8 @@ sub _pococ_ua_start
 	$object -> $_ ($$args{$_}) for grep exists ($$args{$_}),
 		qw(agent from timeout redirect duplicates in_order remember_failures
 			proxy cookie_jar parse_head max_size max_hosts max_req delay);
+	$kernel->sig(INT => 'sigint');
+	$kernel->sig(BREAK => 'sigint');
 }
 
 sub _pococ_ua_stop
@@ -73,13 +75,13 @@ sub DESTROY
 	warn "$object destroyed\n" if $debuglevel >= 3;
 }
 
-sub _pococ_ua_signal
+sub _pococ_ua_sig_int
 {
 	my ($object, $signal) = @_[OBJECT, ARG0];
 	LWP::Debug::trace ("Signal=$signal\n\t$object");
 	warn "Signal '$signal' arrived\n" if $debuglevel >= 3;
-	$object -> _pococ_ua_cleanup if $signal eq 'INT' or $signal eq 'BREAK';
-	return $signal eq 'IDLE';
+	$object -> _pococ_ua_cleanup();
+	return 0;
 }
 
 sub _pococ_ua_shutdown
