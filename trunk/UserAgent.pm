@@ -4,7 +4,7 @@ use POE;
 use LWP::Parallel;
 
 @POE::Component::Client::UserAgent::ISA = 'LWP::Parallel::UserAgent';
-$POE::Component::Client::UserAgent::VERSION = '0.04';
+$POE::Component::Client::UserAgent::VERSION = '0.05';
 
 my $debuglevel = 0;
 
@@ -20,7 +20,7 @@ sub spawn
 	$class = ref $class || $class;
 	my $object = $class -> SUPER::new;
 	bless $object, $class;
-	$object -> nonblock (1);
+	$object -> nonblock (0);
 	my $argref = @_ & 1 ? pop @_ : { };
 	my %args = (@_, %$argref);
 	$args{alias} ||= 'useragent';
