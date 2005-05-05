@@ -1,6 +1,7 @@
 Changes
-Makefile.PL
 MANIFEST
+META.yml
+Makefile.PL
 README
 UserAgent.pm
 t/01basic.t
