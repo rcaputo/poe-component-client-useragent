@@ -1,6 +1,7 @@
-Changes
+# $Id$
+CHANGES
+CHANGES.OLD
 MANIFEST
-META.yml
 Makefile.PL
 README
 UserAgent.pm
