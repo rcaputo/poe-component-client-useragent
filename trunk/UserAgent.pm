@@ -687,14 +687,21 @@ friendly.
 
 The RobotUA variety of UserAgent is not yet implemented.
 
-=head1 AVAILABILITY
+=head1 BUG TRACKER
 
-The C<PoCoCl::UserAgent> distribution is available on CPAN:
-http://search.cpan.org/search?dist=POE-Component-Client-UserAgent
+https://rt.cpan.org/Dist/Display.html?Status=Active&Queue=POE-Component-Client-UserAgent
+
+=head1 REPOSITORY
+
+http://thirdlobe.com/svn/poco-client-ua/
+
+=head1 OTHER RESOURCES
+
+http://search.cpan.org/dist/POE-Component-Client-UserAgent/
 
 =head1 AUTHOR AND COPYRIGHT
 
-Copyright 2001-2002 Rocco Caputo <troc+pcua@pobox.com>
+Copyright 2001-2002 Rocco Caputo.
 
 This library is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.

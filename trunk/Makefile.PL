@@ -14,6 +14,12 @@ WriteMakefile (
 		POE             => 0.31,
 		'LWP::Parallel' => 2.51
 	},
+  META_ADD     => {
+    resources  => {
+      license    => 'http://dev.perl.org/licenses/',
+      repository => 'http://thirdlobe.com/svn/poco-client-ua/trunk'
+    },
+  },
   dist         => {
     COMPRESS   => 'gzip -9f',
     SUFFIX     => 'gz',
