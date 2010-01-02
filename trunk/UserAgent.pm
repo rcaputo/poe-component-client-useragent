@@ -4,7 +4,7 @@ use POE;
 use LWP::Parallel;
 
 @POE::Component::Client::UserAgent::ISA = 'LWP::Parallel::UserAgent';
-$POE::Component::Client::UserAgent::VERSION = '0.06';
+$POE::Component::Client::UserAgent::VERSION = '0.07';
 
 my $debuglevel = 0;
 
@@ -412,6 +412,13 @@ user agent
 
 =head1 DESCRIPTION
 
+B<Note:> C<POE::Component::Client::UserAgent> dependencies frequently
+have problems installing.  This module is difficult to maintain when
+the latest dependencies don't work.  As a result, we prefer to
+maintain and recommend L<POE::Component::Client::HTTP>.  That client
+has fewer, more actively maintained dependencies, and it tends to work
+better.
+
 C<POE::Component::Client::UserAgent> is based on C<LWP> and C<LWP::Parallel>.
 It lets other tasks run while making a request to an Internet server
 and waiting for response, and it lets several requests run in parallel.
@@ -659,15 +666,15 @@ The POE output will also go to the log file you specify.
 
 =item POE
 
-http://poe.perl.org/
+L<POE> or http://poe.perl.org/
 
 =item LWP
 
-http://www.linpro.no/lwp/
+L<LWP> or http://www.linpro.no/lwp/
 
 =item LWP::Parallel
 
-http://www.inf.ethz.ch/~langhein/ParallelUA/
+L<LWP::Parallel> or http://www.inf.ethz.ch/~langhein/ParallelUA/
 
 =back
 
@@ -690,6 +697,11 @@ friendly.
 
 The RobotUA variety of UserAgent is not yet implemented.
 
+L<LWP::Parallel> often cannot install due to feature mismatches with
+recent versions of LWP.  This interferes with our ability to maintain
+and test this module.  Please see L<POE::Component::Client::HTTP>,
+which does not rely on LWP::Parallel.
+
 =head1 BUG TRACKER
 
 https://rt.cpan.org/Dist/Display.html?Status=Active&Queue=POE-Component-Client-UserAgent
@@ -704,7 +716,7 @@ http://search.cpan.org/dist/POE-Component-Client-UserAgent/
 
 =head1 AUTHOR AND COPYRIGHT
 
-Copyright 2001-2002 Rocco Caputo.
+Copyright 2001-2010 Rocco Caputo.
 
 This library is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.

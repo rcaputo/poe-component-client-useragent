@@ -2,7 +2,7 @@ POE::Component::Client::UserAgent
 ---------------------------------
 
 POE::Component::Client::UserAgent is
-Copyright 2001-2002 Rocco Caputo <troc+pcua@pobox.com>
+Copyright 2001-2010 Rocco Caputo <troc+pcua@pobox.com>
 
 This library is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.
@@ -71,6 +71,9 @@ Test scripts are also good examples of the component usage.
 
 See Also
 --------
+
+We recommend POE::Component::Client::HTTP as an alternative to this
+module.
 
 POE
 http://poe.perl.org/
