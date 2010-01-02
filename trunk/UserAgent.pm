@@ -315,8 +315,11 @@ sub _pococ_ua_postback
 		# See LWP::Parallel::UserAgent::handle_response for details.
 		my $code = $response -> code;
 		if ( $code == HTTP::Status::RC_MOVED_PERMANENTLY
-			or $code == HTTP::Status::RC_MOVED_TEMPORARILY )
-		{
+				or $code == HTTP::Status::RC_MOVED_TEMPORARILY
+				or $code == HTTP::Status::RC_FOUND
+				or $code == HTTP::Status::RC_SEE_OTHER
+				or $code == HTTP::Status::RC_TEMPORARY_REDIRECT
+		) {
 			$code = $response -> header ('Client-Warning');
 			return unless defined ($code) and $code eq 'Redirect loop detected';
 		}
