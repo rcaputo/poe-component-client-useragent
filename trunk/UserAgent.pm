@@ -56,7 +56,7 @@ sub _pococ_ua_start
 	$$heap{alias} = $alias;
 	$object -> $_ ($$args{$_}) for grep exists ($$args{$_}),
 		qw(agent from timeout redirect duplicates in_order remember_failures
-			proxy cookie_jar parse_head max_size max_hosts max_req delay);
+		env_proxy proxy cookie_jar parse_head max_size max_hosts max_req delay);
 	$kernel->sig(INT => 'sigint');
 	$kernel->sig(BREAK => 'sigint');
 }

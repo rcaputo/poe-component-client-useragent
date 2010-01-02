@@ -69,7 +69,7 @@ sub _start
 {
 	warn "%%% Start event arrived.\n" if $debuglevel >= 3;
 	warn "%%% Starting POE::Component::Client::UserAgent...\n" if $debuglevel >= 3;
-	POE::Component::Client::UserAgent -> new;
+	POE::Component::Client::UserAgent -> new(env_proxy => 1);
 	warn "%%% Sending test requests...\n" if $debuglevel >= 3;
 	my $postback = $_[SESSION] -> postback ('response');
 	$_[KERNEL] -> post (useragent => request =>
