@@ -4,7 +4,7 @@ use POE;
 use LWP::Parallel;
 
 @POE::Component::Client::UserAgent::ISA = 'LWP::Parallel::UserAgent';
-$POE::Component::Client::UserAgent::VERSION = '0.07';
+$POE::Component::Client::UserAgent::VERSION = '0.08';
 
 my $debuglevel = 0;
 
@@ -708,7 +708,8 @@ https://rt.cpan.org/Dist/Display.html?Status=Active&Queue=POE-Component-Client-U
 
 =head1 REPOSITORY
 
-http://thirdlobe.com/svn/poco-client-ua/
+http://github.com/rcaputo/poe-component-client-useragent
+http://gitorious.org/poe-component-client-useragent
 
 =head1 OTHER RESOURCES
 
